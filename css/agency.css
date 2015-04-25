@@ -304,6 +304,9 @@ section h3.section-subheading {
   max-width: 400px;
   margin: 0 auto;
 }
+#kids .portfolio-item .portfolio-link img {
+  min-height: 220px;
+}
 #kids .portfolio-item .portfolio-link .portfolio-hover {
   background: rgba(98, 122, 173, 0.9);
   position: absolute;
