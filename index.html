@@ -218,7 +218,7 @@
                             </a>
                           </div>
                           <div class="col-md-4">
-                            <a href="pdf/RLS_Tuition.pdf" target="_BLANK">
+                            <a href="#tuition-modal" class="portfolio-link" data-toggle="modal" target="_BLANK">
                               <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                 <i class="fa fa-university fa-stack-1x fa-inverse"></i>
@@ -514,6 +514,7 @@
                       </div>
                     </div>
                   </div>
+
                   <!-- Portfolio Modal 7 - About Holly -->
                   <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-content">
@@ -530,11 +531,11 @@
                               <!-- Project Details Go Here -->
                               <h2>Holly Gold, Founder</h2>
                               <p class="item-intro text-muted">I have always loved children and knew at a young age that my life’s work would be about contributing to their lives. By the time I finished High School, I was reading books and writing papers about Maria Montessori. I have worked in a number of preschools since that time and have explored many other approaches to working with young children.</p>
-<p class="item-intro text-muted">After completing my undergraduate work at University of California, Santa Barbara, I moved to San Francisco and began working at Larkin Street Youth Center, an agency serving homeless and run-away teens. In 1989 I received my Master’s Degree in Social Work from San Francisco State University. Since then, I’ve worked with Camp Sunburst Children’s AIDS Project, the Haight Ashbury Free Clinics, and as Program Director of Big Brothers Big Sisters of San Francisco.
-</p>
-<p class="item-intro text-muted">Prior to opening Rockridge Little School, I served as Executive Director of Ala Costa Center.In 2003 I was recognized by the City of Berkeley as an outstanding woman of the year for my work on behalf of children. In 2000, I was also awarded a LeaderSpring Fellowship (formally called Eureka) in recognition of my community leadership. Through the Eureka Fellowship, I came to realize my dream of opening my own school. I have traveled to China and Cuba as an Early Childhood delegate with People to People. I live in Berkeley with my partner Naomi and our daughter, Bella, who attended RLS during our first year.
-</p>
-<p class="item-intro text-muted">I believe that children thrive when they are surrounded by adults who care for them and who are able to take the time to know them as individuals. I have seen many preschool programs. My vision is to create an environment where children and their parents feel inspired.</p>
+                              <p class="item-intro text-muted">After completing my undergraduate work at University of California, Santa Barbara, I moved to San Francisco and began working at Larkin Street Youth Center, an agency serving homeless and run-away teens. In 1989 I received my Master’s Degree in Social Work from San Francisco State University. Since then, I’ve worked with Camp Sunburst Children’s AIDS Project, the Haight Ashbury Free Clinics, and as Program Director of Big Brothers Big Sisters of San Francisco.
+                              </p>
+                              <p class="item-intro text-muted">Prior to opening Rockridge Little School, I served as Executive Director of Ala Costa Center.In 2003 I was recognized by the City of Berkeley as an outstanding woman of the year for my work on behalf of children. In 2000, I was also awarded a LeaderSpring Fellowship (formally called Eureka) in recognition of my community leadership. Through the Eureka Fellowship, I came to realize my dream of opening my own school. I have traveled to China and Cuba as an Early Childhood delegate with People to People. I live in Berkeley with my partner Naomi and our daughter, Bella, who attended RLS during our first year.
+                              </p>
+                              <p class="item-intro text-muted">I believe that children thrive when they are surrounded by adults who care for them and who are able to take the time to know them as individuals. I have seen many preschool programs. My vision is to create an environment where children and their parents feel inspired.</p>
                               <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Back</button>
                             </div>
                           </div>
@@ -571,6 +572,10 @@
                       </div>
                     </div>
                   </div>
+
+
+                  <!-- Enrollment -->
+                  <div class="portfolio-modal modal fade" id="tuition-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
                   <!-- jQuery -->
                   <script src="js/jquery.js"></script>
@@ -722,6 +727,114 @@
       $('section#team').html(html);
     };
 
+    var renderTutionModal = function() {
+      var source   = $("#tuition-modal-template").html();
+      var template = Handlebars.compile(source);
+      var context = {
+        header: 'Tuition for 2015-16',
+        footer: 'In addition there is a $400 supply fee due each year on September 1.',
+        items: [
+          {
+            header: 'FULL DAY',
+            sub_header: 'sub header...',
+            sub_items: [
+              {
+                text: '8:00 - 9:00  100$',
+              },
+              {
+                text: '9:00 - 3:00  1275$ 3 days a week'
+              },
+              {
+                text: '9:00 - 3:00  1450$ 4 days a week'
+              },
+              {
+                text: '9:00 - 3:00  1575$ 5 days a week'
+              },
+              {
+                text: '3:00 - 5:30  150$ 3 days a week'
+              },
+              {
+                text: '3:00 - 5:30  150$ 4 days a week'
+              },
+              {
+                text: '3:00 - 5:30  150$ 5 days a week'
+              }
+            ]
+          },
+          {
+            header: 'EXTENDED DAY',
+            sub_header: 'sub header...',
+            sub_items: [
+              {
+                text: '8:00 - 5:30  1525$ 3 days a week',
+              },
+              {
+                text: '8:00 - 5:30  1700$ 4 days a week',
+              },
+              {
+                text: '8:00 - 5:30  1750$ 5 days a week',
+              }
+            ]
+          },
+          {
+            header: 'HALF DAY',
+            sub_header: 'sub header...',
+            sub_items: [
+              {
+                text: '9:00-12:45  1250$ 3 days a week',
+              },
+              {
+                text: '9:00-12:45  1350$ 4 days a week',
+              },
+              {
+                text: '9:00-12:45  1475$ 5 days a week',
+              }
+            ]
+          }
+        ]
+      };
+      var html = template(context);
+      $('#tuition-modal').html(html);
+    };
+  </script>
+
+  <script id="tuition-modal-template" type="text/x-handlebars-template">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal"><div class="lr"><div class="rl"></div></div></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="modal-body">
+              <h2>{{this.header}}</h2>
+              <div class="row">
+              {{#each this.items}}
+                <div class="col-md-4">
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h4 class="text-center">{{this.header}}</h4>
+                    </div>
+                    <div class="panel-body text-center">
+                      <p class="lead"><strong>{{this.sub_header}}</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                    {{#each this.sub_items}}
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>{{this.text}}</li>
+                    {{/each}}
+                    </ul>
+                    <div class="panel-footer">{{this.footer}}</div>
+                  </div>
+                </div>
+              {{/each}}
+              </div>
+              <div class="col-sm-12">
+                <p class="item-intro text-muted">{{footer}}</p>
+              </div>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </script>
 
   <script id="kids-template" type="text/x-handlebars-template">
@@ -800,10 +913,12 @@
 
 
   <script type="text/javascript">
+
     $(document).ready(function(){
       renderKidsImages();
       renderPhilosophyTemplate();
       renderTestmonialsTemplate();
+      renderTutionModal();
     });
   </script>
 </body>
