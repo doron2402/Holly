@@ -34,6 +34,9 @@
   .short-text {
     text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
   }
+  .show-more {
+    cursor: pointer;
+  }
   </style>
       </head>
 
@@ -126,7 +129,7 @@
                               <h4 class="subheading">The Dream</h4>
                             </div>
                             <div class="timeline-body">
-                              <p class="text-muted">After a 20-year career in the non-profit field, Holly pursued her dream of opening a preschool. <a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">More about Holly press here</a></p>
+                              <p class="text-muted">After a 20-year career in the non-profit field, Holly pursued her dream of opening a preschool. <a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">More about Holly</a></p>
                             </div>
                           </div>
                         </li>
@@ -502,7 +505,7 @@
                           <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
                               <!-- Project Details Go Here -->
-                              <h2>Our Community</h2>
+                              <h2>OUR COMMUNITY</h2>
                               <p class="item-intro text-muted">Acts of kindness, giving back and environmental stewardship, these are all ways that children at Rockridge Little School contribute to their community.</p>
                               <img class="img-responsive img-centered" src="img/kids/our_community.jpg" alt="">
                               <p>We believe that preschool is a place where children and their families should feel a sense of belonging. Play dates at the park, parents night out, Sunday farmer’s market meet-ups or a warm greeting in the morning – these are just some of the ways that families stay connected at Rockridge Little School.</p>
@@ -626,9 +629,9 @@
         href: '#portfolioModal6',
         img: {
           src: 'img/kids/our_community.jpg',
-          alt: 'Our Community'
+          alt: 'OUR COMMUNITY'
         },
-        header: 'Our Community',
+        header: 'OUR COMMUNITY',
         text: 'Acts of kindness, giving back and environmental stewardship, these are all ways that children at Rockridge Little School contribute to their community.'
       },
       {
@@ -903,7 +906,8 @@
           <div class="team-member">
             <img src="{{this.img.src}}" class="img-responsive img-circle" alt="{{this.img.alt}}">
             <h4>{{this.name}}</h4>
-            <p class="text-muted">{{this.text}}</p>
+            <p class="text-muted short-text" id="team-{{@index}}">{{this.text}}</p>
+            <a class="show-more" data-target="team-{{@index}}">More</a>
           </div>
         </div>
         {{/each}}
@@ -919,7 +923,19 @@
       renderPhilosophyTemplate();
       renderTestmonialsTemplate();
       renderTutionModal();
+      $('.show-more').click(function(ev){
+        toggleTeamText('p#' + $(this).attr('data-target'));
+        if ($(this).text() === 'More') {
+          $(this).text('Less');
+        } else {
+          $(this).text('More');
+        }
+      });
+
     });
+    var toggleTeamText = function(selector) {
+      $(selector).toggleClass('short-text');
+    };
   </script>
 </body>
 
