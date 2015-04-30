@@ -1,4 +1,4 @@
-{
+var tuitionContext = {
   "header": "Tuition for 2015-16",
   "footer": "In addition there is a $400 supply fee due each year on September 1.",
   "items": [
@@ -60,4 +60,4 @@
       ]
     }
   ]
-}
+};
